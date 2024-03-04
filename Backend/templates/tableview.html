@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-body" >
+              <h2 class="card-title">Display Details</h2>
+              <div class="table-responsive">
+                <table class="table" border="2px">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+<!--                      <th scope="col">Heading</th>-->
+<!--                      <th scope="col">Heading</th>-->
+<!--                      <th scope="col">Heading</th>-->
+<!--                      <th scope="col">Heading</th>-->
+                    </tr>
+                  </thead>
+                  <tbody>
+                   {% for i in data %}
+                    <tr>
+
+                      <th scope="row">1</th>
+                      <td>{{i.category}}</td>
+                      <td>{{i.description}}</td>
+                      <td>
+                          <img src="{{i.image.url}}" width="100px" height="80px">
+                      </td>
+                      <td>
+                          <a href="{% url 'editcat' c_id=i.id %}">
+                          <button type="submit" class="btn btn-light px-5"> Edit</button>
+                          </a>
+                      </td>
+                        <td>
+                             <a href="{% url 'deletecat' c_id=i.id %}">
+                          <button type="submit" class="btn btn-light px-5"> Delete</button>
+                             </a>
+                      </td>
+
+                    </tr>
+                   {% endfor %}
+<!--                    <tr>-->
+<!--                      <th scope="row">2</th>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                      <th scope="row">3</th>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                      <td>Cell</td>-->
+<!--                    </tr>-->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}
